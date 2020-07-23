@@ -3,10 +3,12 @@ package sg.edu.rp.c346.id19029489.mymovies;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,12 +19,13 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Movie> alMovieList;
     CustomAdapter caMovie;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lvMovie.findViewById(R.id.listViewMovie);
+        lvMovie = findViewById(R.id.listViewMovie);
 
         Calendar date = Calendar.getInstance();
         date.set(2014, 10, 15);
@@ -31,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         date2.set(2015, 4, 15);
 
         alMovieList = new ArrayList<>();
-        alMovieList.add(new Movie("The Avengers", 2012, "pg13", "Action | Sci-Fi", date, "Golden Village - Bishan", "Nick Fury of S.H.I.E.L.D. assembles a team of superheroes to save the planet from Loki and his army."));
-        alMovieList.add(new Movie("Planes", 2013, "pg", "Animation | Comedy", date2, "Cathay - AMK Hub", "A crop-dusting plane with a fear of heights lives his dream of competing in a famous around-the-world aerial race."));
+        alMovieList.add(new Movie("The Avengers", 2012, "pg13", "Action | Sci-Fi", date, "Golden Village - Bishan", "Nick Fury of S.H.I.E.L.D. assembles a team of superheroes to save the planet from Loki and his army.", 4));
+        alMovieList.add(new Movie("Planes", 2013, "pg", "Animation | Comedy", date2, "Cathay - AMK Hub", "A crop-dusting plane with a fear of heights lives his dream of competing in a famous around-the-world aerial race.", 2));
+        alMovieList.add(new Movie("Sonic the Hedgehog", 2020, "pg", "Action | Adventure | Comedy", date, "", "", 0));
 
         caMovie = new CustomAdapter(this, R.layout.row, alMovieList);
         lvMovie.setAdapter(caMovie);
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("genre", currentMovie.getGenre());
                 intent.putExtra("theatre", currentMovie.getIn_theatre());
                 intent.putExtra("description", currentMovie.getDescription());
+                intent.putExtra("rating", currentMovie.getRating());
                 startActivity(intent);
             }
         });

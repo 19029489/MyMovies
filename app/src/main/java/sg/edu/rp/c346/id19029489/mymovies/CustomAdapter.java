@@ -1,6 +1,7 @@
 package sg.edu.rp.c346.id19029489.mymovies;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,11 @@ public class CustomAdapter extends ArrayAdapter {
 
         // Set values to the TextView to display the corresponding information
         tvTitle.setText(currentMovie.getTitle());
+
+        if (currentMovie.getYear() == 2020){
+            tvTitle.setTextColor(Color.RED);
+        }
+
         tvYear.setText(currentMovie.getYear() + " - ");
         tvGenre.setText(currentMovie.getGenre());
 

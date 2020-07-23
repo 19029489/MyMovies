@@ -10,8 +10,9 @@ public class Movie {
     private Calendar watched_on;
     private String in_theatre;
     private String description;
+    private int rating;
 
-    public Movie(String title, int year, String rated, String genre, Calendar watched_on, String in_theatre, String description) {
+    public Movie(String title, int year, String rated, String genre, Calendar watched_on, String in_theatre, String description, int rating) {
         this.title = title;
         this.year = year;
         this.rated = rated;
@@ -19,6 +20,7 @@ public class Movie {
         this.watched_on = watched_on;
         this.in_theatre = in_theatre;
         this.description = description;
+        this.rating = rating;
     }
 
     public String getTitle() {
@@ -77,4 +79,11 @@ public class Movie {
         this.description = description;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 }
